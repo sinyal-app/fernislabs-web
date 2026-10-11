@@ -40,7 +40,7 @@ src/pages/             home, app, support, legal (app docs + site privacy), 404
 src/lib/               html template helper (escapes by default), URL helpers
 content/<app>/         legal texts as HTML fragments: <doc>.<locale>.html
 content/site/          the website's own privacy notice
-public/                copied as-is: styles.css, fonts, favicon, app icons, _headers
+public/                copied as-is: styles.css, garden.js, fonts, favicon, app icons, CNAME
 ```
 
 ## Adding an app
@@ -76,6 +76,7 @@ Every push to `main` runs `.github/workflows/deploy.yml`: `npm run check`, then 
   CNAMEs, autodiscover, autoconfig) alone. See `docs/dns-hostinger.md`.
 - GitHub Pages cannot send custom headers, so the Content-Security-Policy is a meta
   tag in `src/components/layout.mjs`.
-- The site has no JavaScript, cookies, analytics or third-party requests, and the
-  website privacy notice says so. Keep it that way, or update `content/site/privacy.*.html`.
+- The only JavaScript is `public/garden.js`, the home page's catch-the-dew game
+  (progressive enhancement; the page works without it). There are no cookies,
+  analytics, storage or third-party requests, and the website privacy notice says so. Keep it that way, or update `content/site/privacy.*.html`.
   If the host changes, update the hosting paragraph there too.

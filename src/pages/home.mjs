@@ -14,7 +14,11 @@ export const homePage = {
       description: t.homeDescription,
       body: html`
       <section class="hero">
-        ${fernMark({ size: 220, className: 'hero__mark', drawn: true })}
+        <div class="garden" data-garden data-label="${t.gardenLabel}" data-done="${t.gardenDone}">
+          <div class="garden__plant">${fernMark({ size: 220, className: 'hero__mark', drawn: true })}</div>
+          <p class="garden__hint"><span class="garden__text" aria-live="polite">${t.gardenHint}</span> <span class="garden__count" aria-hidden="true"></span></p>
+          <button class="garden__replant" type="button" hidden>${t.gardenReplant}</button>
+        </div>
         <div class="hero__text">
           <h1>${t.heroTitle}</h1>
           <p class="lead">${t.heroLead}</p>
@@ -34,7 +38,8 @@ export const homePage = {
         <p>${t.contactLead}</p>
         <p class="contact__email"><a href="mailto:${studio.email}">${studio.email}</a></p>
         <p class="contact__where">${studio.name}, ${studio.city[locale]}</p>
-      </section>`,
+      </section>
+      <script type="module" src="/garden.js"></script>`,
     };
   },
 };

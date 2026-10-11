@@ -6,8 +6,9 @@ import { fernMark } from './brand.mjs';
 
 const BUILD_YEAR = new Date().getFullYear();
 // GitHub Pages cannot set response headers, so the policy ships in a meta tag.
-// Inline styles are allowed for the per-app theme colours on app tiles.
-const CSP = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'";
+// Inline styles are allowed for the per-app theme colours on app tiles; scripts
+// only from our own origin (the home page's garden game).
+const CSP = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'";
 
 const head = ({ locale, title, description, path, alternates, theme, noindex }) => html`
   <head>

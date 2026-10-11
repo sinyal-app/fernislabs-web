@@ -15,6 +15,7 @@
   --fern-soft: #DFEAE2;
   --warn: #8A5A0B;
   --warn-soft: #F6EBD3;
+  --dew: #5E9FC4;
 
   --font: Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --step--1: 0.875rem;
@@ -42,6 +43,7 @@
     --fern-soft: #1A2B21;
     --warn: #E9C27A;
     --warn-soft: #33281A;
+    --dew: #8CC6E6;
     color-scheme: dark;
   }
 }
@@ -124,11 +126,10 @@ img { max-width: 100%; display: block; }
   display: grid; grid-template-columns: auto 1fr; align-items: center; gap: clamp(1.5rem, 5vw, 4rem);
   padding-block: clamp(2.5rem, 8vw, 6rem) 1rem;
 }
-.hero__mark { width: clamp(120px, 22vw, 240px); height: auto; }
+.hero__mark { width: 100%; height: auto; }
 .hero h1 { font-size: var(--step-4); letter-spacing: -0.035em; line-height: 1.02; max-width: 12ch; margin-bottom: 1.25rem; }
 @media (max-width: 40rem) {
   .hero { grid-template-columns: 1fr; }
-  .hero__mark { width: 96px; }
 }
 
 .app-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); }
@@ -252,3 +253,43 @@ img { max-width: 100%; display: block; }
 .not-found { text-align: center; padding-block: 5rem 2rem; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
 .not-found h1 { font-size: var(--step-3); margin-top: 1rem; }
 .not-found p { color: var(--muted); }
+
+/* ---------- Garden: the home page's catch-the-dew game ---------- */
+.garden { position: relative; width: clamp(180px, 26vw, 300px); user-select: none; -webkit-user-select: none; }
+@media (max-width: 40rem) { .garden { width: min(240px, 70vw); } }
+.garden__plant { border-radius: 24px; touch-action: manipulation; }
+.garden--ready .garden__plant { cursor: pointer; }
+.garden .mark__stem { stroke-width: 4.2; }
+.garden .mark__leaf { stroke-width: 3.4; }
+.garden__hint { visibility: hidden; margin: .25rem 0 0; font-size: var(--step--1); color: var(--muted); text-align: center; min-height: 1.6em; }
+.garden--ready .garden__hint { visibility: visible; }
+.garden__count { font-weight: 600; color: var(--fern); margin-left: .35rem; font-variant-numeric: tabular-nums; }
+.garden--done .garden__text { color: var(--ink); font-weight: 600; }
+.garden--done .garden__count { display: none; }
+.garden__replant {
+  display: block; margin: .6rem auto 0; padding: .45rem 1rem; border-radius: 999px; cursor: pointer;
+  border: 1.5px solid var(--fern); background: transparent; color: var(--fern); font: 600 var(--step--1) var(--font);
+}
+.garden__replant:hover { background: var(--fern-soft); }
+.garden__replant[hidden] { display: none; }
+
+.dew {
+  position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; padding: 0;
+  border: 0; background: transparent; cursor: pointer; touch-action: manipulation;
+  animation: dew-in .35s cubic-bezier(.3, 1.6, .5, 1) both, dew-bob 2.4s ease-in-out .35s infinite;
+}
+.dew::before {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px;
+  border-radius: 50% 0 50% 50%; transform: rotate(-45deg);
+  background: radial-gradient(circle at 38% 62%, rgb(255 255 255 / .85) 0 16%, var(--dew) 48%);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--dew) 40%, transparent);
+}
+.dew--fading { transition: opacity .4s ease; opacity: 0; }
+.dew--caught { animation: dew-pop .3s ease-out forwards; pointer-events: none; }
+@keyframes dew-in { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes dew-bob { 50% { transform: translateY(-4px); } }
+@keyframes dew-pop { to { transform: scale(1.8); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .dew { animation: none; }
+  .dew--caught { animation: none; opacity: 0; }
+}
