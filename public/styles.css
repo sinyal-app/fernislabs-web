@@ -127,9 +127,30 @@ img { max-width: 100%; display: block; }
   padding-block: clamp(2.5rem, 8vw, 6rem) 1rem;
 }
 .hero__mark { width: 100%; height: auto; }
-.hero h1 { font-size: var(--step-4); letter-spacing: -0.035em; line-height: 1.02; max-width: 12ch; margin-bottom: 1.25rem; }
+.hero h1 { font-size: var(--step-4); letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 1.25rem; }
+.hero__line { display: block; }
+.hero .lead { margin-bottom: 1.5rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero__line, .hero .lead, .promises { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero__line + .hero__line { animation-delay: .12s; }
+  .hero .lead { animation-delay: .24s; }
+  .promises { animation-delay: .36s; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+
+.promises { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.promises li {
+  display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .85rem .4rem .7rem;
+  border-radius: 999px; background: var(--fern-soft); color: var(--ink); font-size: var(--step--1); font-weight: 600;
+}
+.promises li::before {
+  content: ''; width: .6rem; height: .33rem; margin-top: -.15rem;
+  border-left: 2px solid var(--fern); border-bottom: 2px solid var(--fern); transform: rotate(-45deg);
+}
 @media (max-width: 40rem) {
-  .hero { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; padding-top: 1.5rem; }
+  .hero__text { order: -1; }
+  .garden { justify-self: center; }
 }
 
 .app-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); }
@@ -261,7 +282,7 @@ img { max-width: 100%; display: block; }
 .garden--ready .garden__plant { cursor: pointer; }
 .garden .mark__stem { stroke-width: 4.2; }
 .garden .mark__leaf { stroke-width: 3.4; }
-.garden__hint { visibility: hidden; margin: .25rem 0 0; font-size: var(--step--1); color: var(--muted); text-align: center; min-height: 1.6em; }
+.garden__hint { visibility: hidden; margin: .25rem 0 0; font-size: var(--step--1); color: var(--muted); text-align: center; min-height: 3.2em; }
 .garden--ready .garden__hint { visibility: visible; }
 .garden__count { font-weight: 600; color: var(--fern); margin-left: .35rem; font-variant-numeric: tabular-nums; }
 .garden--done .garden__text { color: var(--ink); font-weight: 600; }
@@ -271,6 +292,7 @@ img { max-width: 100%; display: block; }
   border: 1.5px solid var(--fern); background: transparent; color: var(--fern); font: 600 var(--step--1) var(--font);
 }
 .garden__replant:hover { background: var(--fern-soft); }
+.garden--ready .garden__replant[hidden] { display: block; visibility: hidden; }
 .garden__replant[hidden] { display: none; }
 
 .dew {

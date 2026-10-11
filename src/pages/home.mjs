@@ -20,8 +20,9 @@ export const homePage = {
           <button class="garden__replant" type="button" hidden>${t.gardenReplant}</button>
         </div>
         <div class="hero__text">
-          <h1>${t.heroTitle}</h1>
+          <h1>${t.heroTitle.map((line) => html`<span class="hero__line">${line}</span>`)}</h1>
           <p class="lead">${t.heroLead}</p>
+          <ul class="promises">${t.heroPromises.map((item) => html`<li>${item}</li>`)}</ul>
         </div>
       </section>
 

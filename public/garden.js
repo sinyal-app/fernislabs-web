@@ -13,7 +13,7 @@ const MAX_LEAVES = 4 + 2 * STAGES;
  */
 export function frond(stage) {
   const u = stage / STAGES;
-  const length = 72 + 50 * u;
+  const length = 86 + 38 * u;
   const steps = 72;
   const ds = length / steps;
   let x = 50;
@@ -32,7 +32,7 @@ export function frond(stage) {
   // Leaflets sit on the unrolled part of the stem, longest near the base.
   const count = 4 + 2 * stage;
   const openEnd = 0.86 - 0.42 * (1 - u);
-  const longest = 13 + 20 * u;
+  const longest = 15 + 18 * u;
   const leaves = [];
   for (let i = 0; i < MAX_LEAVES; i++) {
     const grown = Math.min(1, Math.max(0, count - i));
