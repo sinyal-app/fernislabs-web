@@ -28,4 +28,4 @@ autodiscover, autoconfig) stays as it is.
 
 - `A @`: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 (replaces 2.57.91.91)
 - `AAAA @`: 2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153, 2606:50c0:8003::153
-- `CNAME www`: rahatsal.github.io (was fernislabs.com)
+- `CNAME www`: sinyal-app.github.io (was fernislabs.com)
