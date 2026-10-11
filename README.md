@@ -68,11 +68,12 @@ Every push to `main` runs `.github/workflows/deploy.yml`: `npm run check`, then 
 `dist/` to GitHub Pages. Settings → Pages → Source must be "GitHub Actions".
 
 - `public/CNAME` holds the custom domain `fernislabs.com`.
+- Repo: github.com/sinyal-app/fernislabs-web. Settings → Pages: custom domain
+  `fernislabs.com`, "Enforce HTTPS" on.
 - DNS at Hostinger (hPanel → Domains → fernislabs.com → DNS): four `A` records for `@`
-  (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153), four `AAAA`
-  records for `@` (2606:50c0:8000::153, 2606:50c0:8001::153, 2606:50c0:8002::153,
-  2606:50c0:8003::153) and `CNAME www` → the GitHub Pages host of the repo owner.
-  Leave the MX/TXT email records alone.
+  (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) and
+  `CNAME www` → `sinyal-app.github.io`. Leave the email records (MX, TXT, DKIM
+  CNAMEs, autodiscover, autoconfig) alone. See `docs/dns-hostinger.md`.
 - GitHub Pages cannot send custom headers, so the Content-Security-Policy is a meta
   tag in `src/components/layout.mjs`.
 - The site has no JavaScript, cookies, analytics or third-party requests, and the
