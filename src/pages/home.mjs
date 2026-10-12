@@ -23,7 +23,7 @@ export const homePage = {
         <div class="hero__text">
           <h1>${t.heroTitle.map((line) => html`<span class="hero__line">${line}</span>`)}</h1>
           <p class="lead">${t.heroLead}</p>
-          ${promises(t.heroPromises)}
+          ${promises(t.heroPromises, t.finePrint)}
         </div>
       </section>
 

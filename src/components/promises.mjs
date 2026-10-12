@@ -16,8 +16,8 @@ const icon = (name) => html`
     ${ICONS[name].map((d) => html`<path d="${d}" pathLength="1" />`)}
   </svg>`;
 
-/** The three promises under the hero: an icon, a short claim and a one-liner. */
-export const promises = (items) => html`
+/** The three promises under the hero (icon, claim, one-liner) and the joke fine print. */
+export const promises = (items, finePrint) => html`
   <ul class="promises">
     ${items.map(({ icon: name, title, text }) => html`
     <li class="promise">
@@ -25,4 +25,5 @@ export const promises = (items) => html`
       <span class="promise__title">${title}</span>
       <span class="promise__text">${text}</span>
     </li>`)}
-  </ul>`;
+  </ul>
+  <p class="fine-print">${finePrint}</p>`;
