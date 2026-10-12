@@ -88,7 +88,6 @@ img { max-width: 100%; display: block; }
 .mark--draw .mark__leaf:nth-of-type(6) { animation-delay: 1.5s; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @media (prefers-reduced-motion: reduce) {
-  .promises .promise__icon { transition: none; }
   .mark--draw path { animation: none; stroke-dashoffset: 0; }
 }
 
@@ -128,48 +127,31 @@ img { max-width: 100%; display: block; }
   padding-block: clamp(2.5rem, 8vw, 6rem) 1rem;
 }
 .hero__mark { width: 100%; height: auto; }
-.hero h1 { font-size: var(--step-4); letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 1.25rem; }
+.hero h1 { font-size: var(--step-4); letter-spacing: -0.035em; line-height: 1.02; margin-bottom: 1.9rem; }
 .hero__line { display: block; }
 .hero .lead { margin-bottom: 1.5rem; }
 @media (prefers-reduced-motion: no-preference) {
-  .hero__line, .hero .lead, .promise { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero__line, .hero .lead, .hero__actions { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; }
   .hero__line + .hero__line { animation-delay: .12s; }
   .hero .lead { animation-delay: .24s; }
-  .promise { animation-delay: .36s; }
-  .promise:nth-child(2) { animation-delay: .46s; }
-  .promise:nth-child(3) { animation-delay: .56s; }
-  .promise__icon path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw .9s cubic-bezier(.6, 0, .2, 1) .6s forwards; }
-  .promise:nth-child(2) .promise__icon path { animation-delay: .75s; }
-  .promise:nth-child(3) .promise__icon path { animation-delay: .9s; }
-  .fine-print { animation: rise .7s cubic-bezier(.2, .7, .2, 1) .7s both; }
+  .hero__actions { animation-delay: .36s; }
+  .vine__stem { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.4s cubic-bezier(.6, 0, .2, 1) .5s forwards; }
+  .vine__leaf { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw .5s ease-out forwards; }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 
-.promises {
-  list-style: none; padding: 0; margin: 0;
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-}
-.promise { display: grid; align-content: start; gap: .2rem; padding: 1.1rem 1.1rem 0 0; }
-.promise + .promise { padding-left: 1.1rem; border-left: 1px solid var(--line); }
-.promise__icon {
-  color: var(--fern); width: 44px; height: 44px; padding: 8px; margin-bottom: .55rem;
-  border-radius: 50%; background: var(--fern-soft); transition: transform .35s cubic-bezier(.3, 1.6, .5, 1);
-}
-.promise:hover .promise__icon, .promise:active .promise__icon { transform: rotate(-12deg) scale(1.12); }
-.promise__icon path { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.promise__title { font-weight: 700; font-size: var(--step-1); line-height: 1.2; letter-spacing: -0.02em; }
-.promise__text { font-size: var(--step--1); line-height: 1.5; color: var(--muted); }
-.fine-print { margin: 1.1rem 0 0; font-size: var(--step--1); color: var(--muted); font-style: italic; }
-.fine-print::before { content: '*'; color: var(--fern); font-style: normal; font-weight: 700; margin-right: .2rem; }
-@media (max-width: 68rem) {
-  .promises { grid-template-columns: minmax(0, 1fr); border-top: 0; }
-  .promise, .promise + .promise {
-    grid-template-columns: auto minmax(0, 1fr); column-gap: .9rem;
-    padding: .9rem 0; border-left: 0; border-top: 1px solid var(--line);
-  }
-  .promise__icon { grid-row: span 2; margin: 0; }
-}
+/* The runner under "Kocaman özen." / "Serious care." */
+.hero__line--vine { position: relative; width: fit-content; padding-bottom: .22em; }
+.vine { position: absolute; left: -2%; bottom: -.12em; width: 104%; height: auto; overflow: visible; color: var(--fern); pointer-events: none; }
+.vine path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; }
+.vine__stem { stroke-width: 3; }
+.vine__leaf { stroke-width: 3; }
+.vine__leaf--gone { transition: opacity .4s ease; opacity: 0; }
+
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; margin: 0; }
+.hero__hello { color: var(--ink); font-weight: 600; text-decoration-color: var(--fern); }
+.hero__hello:hover { color: var(--fern); }
+
 @media (max-width: 40rem) {
   .hero { grid-template-columns: 1fr; padding-top: 1.5rem; }
   .hero__text { order: -1; }
@@ -309,7 +291,7 @@ img { max-width: 100%; display: block; }
 .garden .mark__leaf { stroke-width: 3.4; }
 .garden__hint { visibility: hidden; margin: .25rem 0 0; font-size: var(--step--1); color: var(--muted); text-align: center; min-height: 3.2em; }
 .garden--ready .garden__hint { visibility: visible; }
-.garden__count { font-weight: 600; color: var(--fern); margin-left: .35rem; font-variant-numeric: tabular-nums; }
+.garden__count { white-space: nowrap; font-weight: 600; color: var(--fern); margin-left: .35rem; font-variant-numeric: tabular-nums; }
 .garden--done .garden__text { color: var(--ink); font-weight: 600; }
 .garden--done .garden__count { display: none; }
 .garden__replant {

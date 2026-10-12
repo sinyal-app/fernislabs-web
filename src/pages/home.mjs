@@ -4,7 +4,7 @@ import { studio, ui } from '../site.mjs';
 import { apps } from '../apps/index.mjs';
 import { fernMark } from '../components/brand.mjs';
 import { appTile } from '../components/app.mjs';
-import { promises } from '../components/promises.mjs';
+import { vine } from '../components/vine.mjs';
 
 export const homePage = {
   path: (locale) => href(locale),
@@ -21,9 +21,15 @@ export const homePage = {
           <button class="garden__replant" type="button" hidden>${t.gardenReplant}</button>
         </div>
         <div class="hero__text">
-          <h1>${t.heroTitle.map((line) => html`<span class="hero__line">${line}</span>`)}</h1>
+          <h1>
+            <span class="hero__line">${t.heroTitle[0]}</span>
+            <span class="hero__line hero__line--vine">${t.heroTitle[1]}${vine()}</span>
+          </h1>
           <p class="lead">${t.heroLead}</p>
-          ${promises(t.heroPromises, t.finePrint)}
+          <p class="hero__actions">
+            <a class="button" href="#apps">${t.heroCta}</a>
+            <a class="hero__hello" href="mailto:${studio.email}">${t.heroHello}</a>
+          </p>
         </div>
       </section>
 

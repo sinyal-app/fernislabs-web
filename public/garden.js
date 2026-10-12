@@ -58,10 +58,60 @@ export function frond(stage) {
 
 if (typeof document !== 'undefined') {
   const root = document.querySelector('[data-garden]');
-  if (root) plantGarden(root);
+  if (root) plantGarden(root, growVine(document.querySelector('[data-vine]')));
 }
 
-function plantGarden(root) {
+/**
+ * The runner under the headline. It starts with three leaflets and gains one
+ * for every dew drop caught, so the headline grows along with the fern.
+ * Returns show(count); a missing vine gives a no-op.
+ */
+function growVine(svg) {
+  if (!svg) return () => {};
+  const SVG = 'http://www.w3.org/2000/svg';
+  const stem = svg.querySelector('.vine__stem');
+  const total = stem.getTotalLength();
+  // Where each leaflet sits along the runner, in the order they appear.
+  const ORDER = [4, 8, 12, 2, 6, 10, 14, 1, 5, 9, 13, 3, 7, 11, 15];
+  const leaves = new Map();
+
+  const leafAt = (slot) => {
+    const at = (slot / 16) * total;
+    const p = stem.getPointAtLength(at);
+    const q = stem.getPointAtLength(Math.min(total, at + 1));
+    const angle = Math.atan2(q.y - p.y, q.x - p.x);
+    // Leaflets hang below the runner, away from the letters, alternating
+    // between swept back and nearly straight down.
+    const out = angle + (slot % 2 ? 1.55 : 0.95);
+    const len = 20 + (slot % 3) * 5;
+    const ex = p.x + Math.cos(out) * len;
+    const ey = p.y + Math.sin(out) * len;
+    const cx = p.x + Math.cos(out - 0.45) * len * 0.6;
+    const cy = p.y + Math.sin(out - 0.45) * len * 0.6;
+    const leaf = document.createElementNS(SVG, 'path');
+    leaf.setAttribute('class', 'vine__leaf');
+    leaf.setAttribute('pathLength', '1');
+    leaf.setAttribute('d', `M${p.x.toFixed(1)} ${p.y.toFixed(1)}Q${cx.toFixed(1)} ${cy.toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}`);
+    return leaf;
+  };
+
+  return (count) => {
+    ORDER.forEach((slot, i) => {
+      const leaf = leaves.get(slot);
+      if (i < count && !leaf) {
+        const fresh = leafAt(slot);
+        svg.append(fresh);
+        leaves.set(slot, fresh);
+      } else if (i >= count && leaf) {
+        leaves.delete(slot);
+        leaf.classList.add('vine__leaf--gone');
+        setTimeout(() => leaf.remove(), 400);
+      }
+    });
+  };
+}
+
+function plantGarden(root, showVineLeaves) {
   const SVG = 'http://www.w3.org/2000/svg';
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const plant = root.querySelector('.garden__plant');
@@ -117,6 +167,7 @@ function plantGarden(root) {
     stage += 1;
     growTo(stage);
     counter.textContent = `${stage} / ${STAGES}`;
+    showVineLeaves(3 + stage);
     if (finished()) {
       stopRain();
       drops.forEach((dew) => dew.classList.add('dew--fading'));
@@ -192,10 +243,13 @@ function plantGarden(root) {
     replant.hidden = true;
     root.classList.remove('garden--done');
     growTo(0);
+    showVineLeaves(3);
     startRain();
   });
 
   draw(0);
+  // The first leaflets open once the runner has drawn itself in.
+  setTimeout(() => showVineLeaves(3 + stage), reduceMotion ? 0 : 1700);
   hint.dataset.start = hint.textContent;
   root.classList.add('garden--ready');
 
