@@ -4,6 +4,7 @@ import { studio, ui } from '../site.mjs';
 import { apps } from '../apps/index.mjs';
 import { fernMark } from '../components/brand.mjs';
 import { appTile } from '../components/app.mjs';
+import { promises } from '../components/promises.mjs';
 
 export const homePage = {
   path: (locale) => href(locale),
@@ -22,7 +23,7 @@ export const homePage = {
         <div class="hero__text">
           <h1>${t.heroTitle.map((line) => html`<span class="hero__line">${line}</span>`)}</h1>
           <p class="lead">${t.heroLead}</p>
-          <ul class="promises">${t.heroPromises.map((item) => html`<li>${item}</li>`)}</ul>
+          ${promises(t.heroPromises)}
         </div>
       </section>
 
