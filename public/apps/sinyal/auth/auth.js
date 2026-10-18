@@ -126,13 +126,15 @@ async function recoverEmail() {
   }
 }
 
-// Same rules as the app's sign-up checklist (src/features/auth/email/password-policy.ts).
+// Same rules as the app's sign-up checklist (src/features/auth/email/password-policy.ts), which
+// match Firebase Auth's password policy: ASCII letters and digits, symbols from its own list.
+const SYMBOLS = '^$*.[]{}()?"!@#%&/\\,><\':;|_~`-';
 const RULES = {
   length: (p) => p.length >= 8 && p.length <= 128,
-  upper: (p) => /\p{Lu}/u.test(p),
-  lower: (p) => /\p{Ll}/u.test(p),
-  number: (p) => /\p{Nd}/u.test(p),
-  special: (p) => /[^\p{L}\p{Nd}\s]/u.test(p),
+  upper: (p) => /[A-Z]/.test(p),
+  lower: (p) => /[a-z]/.test(p),
+  number: (p) => /[0-9]/.test(p),
+  special: (p) => [...p].some((char) => SYMBOLS.includes(char)),
 };
 
 function passwordField(id, label, autocomplete) {
