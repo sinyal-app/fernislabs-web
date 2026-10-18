@@ -10,6 +10,7 @@ import { appPage } from './src/pages/app.mjs';
 import { supportPage } from './src/pages/support.mjs';
 import { appDocPage, sitePrivacyPage } from './src/pages/legal.mjs';
 import { notFoundPage } from './src/pages/not-found.mjs';
+import { authActionPage } from './src/pages/auth-action.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -47,6 +48,8 @@ for (const page of pages) {
 const notFound = notFoundPage.render(DEFAULT_LOCALE);
 const homes = Object.fromEntries(LOCALES.map((l) => [l, homePage.path(l)]));
 write(notFoundPage.file, String(layout({ ...notFound, locale: DEFAULT_LOCALE, path: '/', alternates: homes, noindex: true })));
+// Where Sinyal's account emails link to: one page for every language, not in the sitemap.
+write(authActionPage.file, String(authActionPage.render()));
 
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
