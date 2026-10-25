@@ -5,7 +5,7 @@
 <ul>
 <li>Fotoğraf ve videolarınızı saklamayız. Yalnızca analizinizi üretmek için sunucumuza, oradan da Google’ın Gemini API’sine gönderilirler.</li>
 <li>Raporlar metin olarak tutulur ve telefonunuzda kalır. “Raporlarımı hesabıma yedekle” seçeneğini açmadığınız sürece sunucuya gitmez; bu seçenek varsayılan olarak kapalıdır.</li>
-<li>Reklam yok, kişisel veri satışı yok, uygulamada üçüncü taraf analitik SDK’sı yok.</li>
+<li>Reklam yok, kişisel veri satışı yok, uygulamada üçüncü taraf analitik SDK’sı yok. Hataları düzeltebilmek için yalnızca hesabınıza bağlanmayan çökme ve hata raporları toplarız.</li>
 <li>Sinyal Avı oyununu oynarsanız avcı adınız, avatarınız ve sezon XP’niz sıralamada diğer oyunculara görünür; e-posta adresiniz asla görünmez.</li>
 <li>Hesabınızı ve eşitlenen tüm verilerinizi istediğiniz zaman uygulamanın içinden silebilirsiniz.</li>
 </ul>
@@ -134,13 +134,15 @@
 <tr><td>RevenueCat Inc.</td><td>Abonelik yönetimi</td><td>UID’nize bağlı satın alma ve hak bilgileri</td></tr>
 <tr><td>Apple Inc. / Google LLC — App Store ve Google Play</td><td>Uygulama dağıtımı ve ödemeler</td><td>Kendi gizlilik politikalarına tabi satın alma ve ödeme bilgileri</td></tr>
 <tr><td>Expo (650 Industries, Inc.)</td><td>Uygulama güncellemelerinin iletilmesi (EAS Update)</td><td>Uygulama bir güncelleme indirirken gönderilen cihaz ve uygulama bilgileri</td></tr>
+<tr><td>Functional Software, Inc. — Sentry</td><td>Çökme ve hata raporları (AB bölgesi, Almanya)</td><td>Hata ve kodda nerede oluştuğu, hatanın görüldüğü ekran, uygulama sürümü, cihaz modeli ve işletim sistemi, rastgele bir kurulum kimliği</td></tr>
 </tbody>
 </table>
 </div>
+<p><strong>Çökme ve hata raporları.</strong> Uygulama çöktüğünde veya bir işlem beklenmedik bir hatayla durduğunda (örneğin fotoğraf seçici açılamadığında), hatayı bulup düzeltebilmemiz için Sentry’ye kısa bir rapor gönderilir. Raporda hesap kimliğiniz, e-postanız, IP adresiniz, fotoğraf veya videolarınız, yazdığınız metinler, ekran görüntüsü ya da dokunuşlarınız yer almaz; bu yüzden rapor size bağlanmaz. İptal etmek, internetin olmaması veya günlük sınırın dolması gibi olağan durumlar raporlanmaz.</p>
 <p>Kanunen zorunlu olduğunda, örneğin geçerli bir talep üzerine mahkemelere veya yetkili kamu kurumlarına da bilgi verebiliriz.</p>
 
 <h2 id="transfers">9. Yurt dışına aktarım</h2>
-<p>Hizmet sağlayıcılarımız verileri Türkiye dışında, muhtemelen yaşadığınız ülkenin de dışında saklar veya işler: sunucumuz Güney Kore’dedir; Google, RevenueCat, Apple ve Expo ise ABD ve diğer ülkelerden hizmet verir. Türkiye için yeterlilik kararı bulunan bir ülke henüz olmadığından, bu aktarımlar KVKK md. 9 uyarınca Kişisel Verileri Koruma Kurulu’nun ilan ettiği standart sözleşmelere dayanılarak yapılır; standart sözleşmeler imzalandıkları tarihten itibaren beş iş günü içinde Kurum’a bildirilir. GDPR’ın uygulandığı durumlarda sağlayıcıların veri işleme sözleşmelerindeki Standart Sözleşme Maddeleri’ne dayanılır.</p>
+<p>Hizmet sağlayıcılarımız verileri Türkiye dışında, muhtemelen yaşadığınız ülkenin de dışında saklar veya işler: sunucumuz Güney Kore’dedir; Google, RevenueCat, Apple ve Expo ABD ve diğer ülkelerden hizmet verir; çökme raporları ise Sentry’nin AB’deki (Almanya) sunucularında tutulur. Türkiye için yeterlilik kararı bulunan bir ülke henüz olmadığından, bu aktarımlar KVKK md. 9 uyarınca Kişisel Verileri Koruma Kurulu’nun ilan ettiği standart sözleşmelere dayanılarak yapılır; standart sözleşmeler imzalandıkları tarihten itibaren beş iş günü içinde Kurum’a bildirilir. GDPR’ın uygulandığı durumlarda sağlayıcıların veri işleme sözleşmelerindeki Standart Sözleşme Maddeleri’ne dayanılır.</p>
 
 <h2 id="retention">10. Saklama süreleri</h2>
 <div class="table">
@@ -159,6 +161,7 @@
 <tr><td>Sinyal Avı oyun durumu, soru geçmişi ve sezon puanları (geçmiş sezonlar dahil)</td><td>Hesabınızı silene kadar; hesabınızı sildiğinizde hemen silinir</td></tr>
 <tr><td>Firebase’deki hesap bilgileri</td><td>Hesabınızı silene kadar</td></tr>
 <tr><td>Sunucu teknik kayıtları</td><td>En fazla 7 gün</td></tr>
+<tr><td>Çökme ve hata raporları (Sentry)</td><td>En fazla 90 gün</td></tr>
 <tr><td>Abonelik kayıtları</td><td>RevenueCat, Apple ve Google tarafından faturalandırma, vergi ve yasal yükümlülükler için gereken süre boyunca</td></tr>
 <tr><td>Cihazınızdaki veriler</td><td>Siz silene, hesabınızı silene veya uygulamayı kaldırana kadar</td></tr>
 <tr><td>Bize gönderdiğiniz e-postalar</td><td>1 yıl</td></tr>
@@ -171,7 +174,7 @@
 <ul>
 <li><strong>Sözleşmenin kurulması ve ifası</strong> (KVKK md. 5/2-c; GDPR md. 6/1-b): hesabınız, istediğiniz analizler, eşitleme, rapor yedeği, Sinyal Avı ve sıralaması ile abonelikler.</li>
 <li><strong>Açık rızanız</strong> (KVKK md. 5/1; GDPR md. 6/1-a): fotoğraf ve videolarınızın analiz için Google Gemini’ye gönderilmesi.</li>
-<li><strong>Meşru menfaatimiz</strong> (KVKK md. 5/2-f; GDPR md. 6/1-f): kullanım sınırları, kötüye kullanımın önlenmesi (Sinyal Avı’nda hilenin önlenmesi ve avcı adlarının denetimi dahil), hizmetin güvenli ve çalışır durumda tutulması.</li>
+<li><strong>Meşru menfaatimiz</strong> (KVKK md. 5/2-f; GDPR md. 6/1-f): kullanım sınırları, kötüye kullanımın önlenmesi (Sinyal Avı’nda hilenin önlenmesi ve avcı adlarının denetimi dahil), hizmetin güvenli ve çalışır durumda tutulması (çökme ve hata raporları dahil).</li>
 <li><strong>Hukuki yükümlülükler</strong> (KVKK md. 5/2-ç; GDPR md. 6/1-c): kanunun veri saklamamızı veya paylaşmamızı gerektirdiği durumlar.</li>
 </ul>
 <p><strong>Özel nitelikli kişisel veriler.</strong> Fotoğraf ve videolar kişileri tanımak, kimliklerini belirlemek veya doğrulamak için işlenmez; analiz yalnızca görünen duruş ve jestleri yorumlar. Bir görüntü ancak kişiyi benzersiz şekilde tanımlamaya yarayan özel bir teknik işlemden geçirildiğinde biyometrik veri sayılır; Sinyal böyle bir işlem yapmaz. Yapay zekâya ayrıca sağlık durumu, din, etnik köken, cinsel yönelim gibi hassas özellikler hakkında çıkarım yapmaması açıkça söylenir. Bu nedenle Sinyal, KVKK md. 6 ve GDPR md. 9 kapsamındaki özel nitelikli kişisel verileri kasıtlı olarak işlemez. Başkalarının göründüğü fotoğraf ve videoları yalnızca o kişilerin izniyle yüklemeniz gerekir.</p>

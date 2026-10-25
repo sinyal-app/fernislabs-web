@@ -12,7 +12,7 @@ export default {
     appStore: null,
     googlePlay: null,
   },
-  legalUpdated: '2026-10-11',
+  legalUpdated: '2026-10-25',
   docs: ['privacy', 'terms', 'delete-account'],
 
   copy: {

@@ -5,7 +5,7 @@
 <ul>
 <li>We do not store your photos or videos. They are sent to our server and passed to Google’s Gemini API only to produce your analysis.</li>
 <li>Reports are text. They stay on your phone unless you turn on “Back up reports to my account”, which is off by default.</li>
-<li>No advertising, no selling of personal data and no third-party analytics SDK in the app.</li>
+<li>No advertising, no selling of personal data and no third-party analytics SDK in the app. To fix bugs we only collect crash and error reports that are not linked to your account.</li>
 <li>If you play the Signal Hunt game, your hunter name, avatar and season XP are visible to other players in the ranking; your email never is.</li>
 <li>You can delete your account and all synced data from the app at any time.</li>
 </ul>
@@ -134,13 +134,15 @@
 <tr><td>RevenueCat Inc.</td><td>Subscription management</td><td>Purchase and entitlement data linked to your UID</td></tr>
 <tr><td>Apple Inc. / Google LLC — App Store and Google Play</td><td>App distribution and payments</td><td>Purchase and payment data under their own privacy policies</td></tr>
 <tr><td>Expo (650 Industries, Inc.)</td><td>Delivering app updates (EAS Update)</td><td>Device and app metadata sent when the app downloads an update</td></tr>
+<tr><td>Functional Software, Inc. — Sentry</td><td>Crash and error reports (EU region, Germany)</td><td>The error and where in the code it happened, the screen it happened on, app version, device model and operating system, a random installation ID</td></tr>
 </tbody>
 </table>
 </div>
+<p><strong>Crash and error reports.</strong> When the app crashes or an action stops on an unexpected error (for example the photo picker fails to open), a short report is sent to Sentry so we can find and fix it. It contains no account ID, email, IP address, photos or videos, text you wrote, screenshots or taps, so it is not linked to you. Ordinary outcomes such as cancelling, being offline or reaching the daily limit are not reported.</p>
 <p>We may also disclose data where the law requires it, for example to a court or public authority with a valid legal request.</p>
 
 <h2 id="transfers">9. International transfers</h2>
-<p>Our providers store or process data outside Türkiye and possibly outside your country: our backend is in South Korea, and Google, RevenueCat, Apple and Expo operate from the United States and other countries. As no country has yet been recognised as adequate for Türkiye, these transfers rely on the standard contracts published by the Personal Data Protection Board under KVKK Art. 9; each standard contract is notified to the Authority within five business days of signature. Where the GDPR applies, we rely on the Standard Contractual Clauses in the providers’ data processing terms.</p>
+<p>Our providers store or process data outside Türkiye and possibly outside your country: our backend is in South Korea; Google, RevenueCat, Apple and Expo operate from the United States and other countries; crash reports are kept on Sentry’s servers in the EU (Germany). As no country has yet been recognised as adequate for Türkiye, these transfers rely on the standard contracts published by the Personal Data Protection Board under KVKK Art. 9; each standard contract is notified to the Authority within five business days of signature. Where the GDPR applies, we rely on the Standard Contractual Clauses in the providers’ data processing terms.</p>
 
 <h2 id="retention">10. How long we keep data</h2>
 <div class="table">
@@ -159,6 +161,7 @@
 <tr><td>Signal Hunt game state, question history and season scores (incl. past seasons)</td><td>Until you delete your account; deleted immediately when you do</td></tr>
 <tr><td>Account data in Firebase</td><td>Until you delete your account</td></tr>
 <tr><td>Technical server logs</td><td>Up to 7 days</td></tr>
+<tr><td>Crash and error reports (Sentry)</td><td>Up to 90 days</td></tr>
 <tr><td>Subscription records</td><td>Kept by RevenueCat, Apple and Google as required for billing, tax and legal purposes</td></tr>
 <tr><td>Data on your device</td><td>Until you delete it, delete your account or uninstall the app</td></tr>
 <tr><td>Emails you send us</td><td>1 year</td></tr>
@@ -170,7 +173,7 @@
 <ul>
 <li><strong>To provide the service you asked for</strong> (KVKK Art. 5(2)(c); GDPR Art. 6(1)(b)): your account, the analyses you request, syncing, report backup, Signal Hunt and its ranking, and subscriptions.</li>
 <li><strong>Your explicit consent</strong> (KVKK Art. 5(1); GDPR Art. 6(1)(a)): sending your photos and videos to Google Gemini for analysis.</li>
-<li><strong>Our legitimate interests</strong> (KVKK Art. 5(2)(f); GDPR Art. 6(1)(f)): usage limits, preventing abuse (including cheating in Signal Hunt and checking hunter names), keeping the service secure and running.</li>
+<li><strong>Our legitimate interests</strong> (KVKK Art. 5(2)(f); GDPR Art. 6(1)(f)): usage limits, preventing abuse (including cheating in Signal Hunt and checking hunter names), keeping the service secure and running (including crash and error reports).</li>
 <li><strong>Legal obligations</strong> (KVKK Art. 5(2)(ç); GDPR Art. 6(1)(c)): where the law requires us to keep or disclose data.</li>
 </ul>
 <p><strong>Special categories of personal data.</strong> Photos and videos are not processed to recognise, identify or verify anyone; the analysis only interprets visible posture and gestures. An image counts as biometric data only when it goes through specific technical processing that allows a person to be uniquely identified, and Sinyal does no such processing. The AI is also explicitly told not to draw conclusions about health, religion, ethnic origin, sexual orientation or other sensitive traits. Sinyal therefore does not knowingly process special categories of personal data under KVKK Art. 6 or GDPR Art. 9. Upload photos or videos showing other people only with their permission.</p>
