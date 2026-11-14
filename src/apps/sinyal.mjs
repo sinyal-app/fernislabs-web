@@ -9,8 +9,8 @@ export default {
   theme: { bg: '#15121A', raised: '#1F1A23', text: '#F4EEE8', muted: '#ADA29B', accent: '#DCAED0' },
   // Store URLs go here once the listings are live. Until then the page says "coming soon".
   stores: {
-    appStore: null,
-    googlePlay: null,
+    appStore: null, // in App Review since 2026-11-15
+    googlePlay: 'https://play.google.com/store/apps/details?id=com.fernislabs.sinyal',
   },
   legalUpdated: '2026-10-25',
   docs: ['privacy', 'terms', 'delete-account'],
