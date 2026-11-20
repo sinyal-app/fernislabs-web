@@ -11,6 +11,7 @@ import { supportPage } from './src/pages/support.mjs';
 import { appDocPage, sitePrivacyPage } from './src/pages/legal.mjs';
 import { notFoundPage } from './src/pages/not-found.mjs';
 import { authActionPage } from './src/pages/auth-action.mjs';
+import { storeRedirectPage } from './src/pages/store-redirect.mjs';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const DIST = join(ROOT, 'dist');
@@ -50,6 +51,9 @@ const homes = Object.fromEntries(LOCALES.map((l) => [l, homePage.path(l)]));
 write(notFoundPage.file, String(layout({ ...notFound, locale: DEFAULT_LOCALE, path: '/', alternates: homes, noindex: true })));
 // Where Sinyal's account emails link to: one page for every language, not in the sitemap.
 write(authActionPage.file, String(authActionPage.render()));
+// One link for ads and bios that opens the right store for the phone (not in the sitemap).
+const sinyal = apps.find((app) => app.slug === 'sinyal');
+if (sinyal) write(storeRedirectPage(sinyal).file, String(storeRedirectPage(sinyal).render()));
 
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

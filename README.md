@@ -62,6 +62,15 @@ the page comes from there. Keep the Turkish and English texts in step.
 When a listing goes live, set `stores.appStore` / `stores.googlePlay` in the app
 module. Until then the buttons read "coming soon".
 
+### One link for ads and bios: `/sinyal/indir/`
+
+`https://fernislabs.com/sinyal/indir/` opens the App Store on an iPhone/iPad and Google
+Play on Android; any other device sees both buttons. Built by `src/pages/store-redirect.mjs`
+from the app module's store URLs; the script is `public/apps/sinyal/indir/indir.js`.
+Add `?k=<label>` (e.g. `?k=instagram`) to tag the source: Google Play receives it as the
+install referrer (`utm_source`). The page is `noindex` and not in the sitemap. Do not
+rename it once it is printed in ads or bios.
+
 ## Hosting (GitHub Pages)
 
 Every push to `main` runs `.github/workflows/deploy.yml`: `npm run check`, then deploy
