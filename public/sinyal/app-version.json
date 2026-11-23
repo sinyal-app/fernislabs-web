@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "android": {
+    "latest": "1.0.0",
+    "minimum": "1.0.0"
+  },
+  "ios": {
+    "latest": "1.0.0",
+    "minimum": "1.0.0"
+  },
+  "notes": {
+    "en": [
+      "Tricky new questions in Signal Hunt",
+      "Scenes where you read the photo and the moment together",
+      "A smoother, steadier app"
+    ],
+    "ar": [
+      "أسئلة جديدة مخادعة في صيد الإشارات",
+      "مشاهد تقرأ فيها الصورة واللحظة معاً",
+      "تطبيق أكثر سلاسة وثباتاً"
+    ],
+    "de": [
+      "Knifflige neue Fragen in Signaljagd",
+      "Szenen, in denen du Foto und Moment zusammen liest",
+      "Eine flüssigere, stabilere App"
+    ],
+    "es": [
+      "Nuevas preguntas con trampa en Caza de Señales",
+      "Escenas en las que lees la foto y el momento a la vez",
+      "Una app más fluida y estable"
+    ],
+    "et": [
+      "Uued nõksuga küsimused mängus Signaalijaht",
+      "Stseenid, kus loed fotot ja hetke koos",
+      "Sujuvam ja stabiilsem rakendus"
+    ],
+    "fr": [
+      "De nouvelles questions pièges dans Chasse aux signaux",
+      "Des scènes où tu lis la photo et le moment ensemble",
+      "Une app plus fluide et plus stable"
+    ],
+    "hr": [
+      "Nova škakljiva pitanja u igri Lov na signale",
+      "Scene u kojima zajedno čitaš fotografiju i trenutak",
+      "Glađa i stabilnija aplikacija"
+    ],
+    "ja": [
+      "シグナルハントにひっかけ問題が登場",
+      "写真と状況をあわせて読み解くシーン",
+      "よりなめらかで安定したアプリ"
+    ],
+    "ko": [
+      "시그널 헌트에 새로운 함정 문제",
+      "사진과 상황을 함께 읽는 장면",
+      "더 부드럽고 안정적인 앱"
+    ],
+    "lt": [
+      "Nauji klastingi klausimai žaidime „Signalų medžioklė“",
+      "Scenos, kuriose nuotrauką ir akimirką skaitai kartu",
+      "Sklandesnė ir stabilesnė programėlė"
+    ],
+    "lv": [
+      "Jauni āķīgi jautājumi spēlē “Signālu medības”",
+      "Ainas, kurās foto un brīdi lasi kopā",
+      "Plūstošāka un stabilāka lietotne"
+    ],
+    "pt": [
+      "Novas perguntas com pegadinha em Caça aos Sinais",
+      "Cenas em que você lê a foto e o momento juntos",
+      "Um app mais fluido e estável"
+    ],
+    "ru": [
+      "Новые каверзные вопросы в «Охота за сигналами»",
+      "Сцены, где фото и ситуацию нужно читать вместе",
+      "Более плавное и стабильное приложение"
+    ],
+    "tr": [
+      "Sinyal Avı'nda kandırmacalı yeni sorular",
+      "Fotoğrafı ve anı birlikte okuyacağın sahneler",
+      "Daha akıcı ve sorunsuz bir uygulama"
+    ],
+    "zh-Hans": [
+      "信号猎人新增迷惑题",
+      "需要同时读懂照片和情境的场景",
+      "更流畅、更稳定的应用"
+    ],
+    "zh-Hant": [
+      "訊號獵人新增陷阱題",
+      "需要同時讀懂照片和情境的場景",
+      "更流暢、更穩定的 App"
+    ]
+  }
+}
