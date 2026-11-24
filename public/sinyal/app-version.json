@@ -1,11 +1,11 @@
 {
   "schema": 1,
   "android": {
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "minimum": "1.0.0"
   },
   "ios": {
-    "latest": "1.0.0",
+    "latest": "1.1.0",
     "minimum": "1.0.0"
   },
   "notes": {
